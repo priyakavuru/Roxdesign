@@ -1,0 +1,146 @@
+import React from "react";
+
+/**
+ * AccountResearchThinkingStream.jsx
+ * Medium-fidelity UI implementing Steps 1–4 with a "thinking stream" for Step 4.
+ * - Pure React + Tailwind (no external libs required)
+ * - Dark theme, matches the provided screenshot closely
+ * - Static snapshot (no loaders or animations)
+ */
+
+export default function AccountResearchThinkingStream() {
+  return (
+    <div className="min-h-screen bg-[#0e0f12] text-zinc-100 antialiased">
+      <main className="max-w-[980px] mx-auto px-7 sm:px-8 py-10">
+        {/* Query pill */}
+        <div className="flex justify-center">
+          <div className="inline-block bg-[#14151a] border border-[#2a2d34] text-zinc-300 rounded-xl px-4 py-3 text-sm shadow-inner">
+            For this account, find all of the new developments in the past week
+          </div>
+        </div>
+
+        {/* Progress */}
+        <div className="flex items-center gap-4 mt-4">
+          <div className="relative flex-1 h-2 bg-[#1a1c22] rounded-full overflow-hidden">
+            <span className="absolute inset-0 w-[78%] bg-[#46b879]" />
+          </div>
+          <div className="text-xs text-zinc-400">1 min left</div>
+        </div>
+
+        {/* Steps rail */}
+        <section className="relative mt-8 grid grid-cols-[36px,1fr] gap-x-4 gap-y-5">
+          {/* vertical rail */}
+          <div className="absolute left-[18px] top-0 bottom-0 w-[2px] bg-[#24262c]" />
+
+          {/* Step 1 */}
+          <div className="flex justify-center"><Dot filled /></div>
+          <Step
+            index={1}
+            total={4}
+            dim
+            title="Looking at any recent meetings you have had with this account in the past couple days and summarizing findings"
+            chips={["🔎 Searching over meetings with Stripe"]}
+          />
+
+          {/* Step 2 */}
+          <div className="flex justify-center"><Dot filled /></div>
+          <Step
+            index={2}
+            total={4}
+            dim
+            title="Searching my deals and seeing if there has been any activity on the deal"
+            chips={["📄 Retrieving available deal stages", "📄 Retrieving deals for Stripe"]}
+          />
+
+          {/* Step 3 */}
+          <div className="flex justify-center"><Dot filled /></div>
+          <Step
+            index={3}
+            total={4}
+            active
+            title="Searching Rox and the web for recent public news on this account"
+            chips={[
+              "🔎 Retrieving information on public news postings for Stripe",
+              '🔎 Searching the web for "Stripe news September 2025"',
+            ]}
+          />
+
+          {/* Step 4 - Thinking Stream */}
+          <div className="flex justify-center"><Dot filled /></div>
+          <div className="pb-1">
+            <div className="text-xs text-zinc-400">Step 4 of 4</div>
+            <div className="mt-1 text-sm font-medium">Analyzing findings and forming insights</div>
+
+            <div className="relative mt-3 rounded-xl border border-[#2a2d34] bg-[#191b20] p-4">
+              {/* accent bar */}
+              <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#3a3d45] rounded-l-xl" />
+              <ul className="space-y-2 text-[13px] leading-6 text-zinc-200">
+                <li className="flex gap-2"><span>🤔</span><span>Stripe launched new payment APIs and announced APAC expansion this week.</span></li>
+                <li className="flex gap-2"><span>💡</span><span>Cross-checking recent deal notes—both moves align with the account’s global partnership goals.</span></li>
+                <li className="flex gap-2"><span>📈</span><span><span className="font-semibold">Opportunity:</span> re-engage the account around API integration and data-infrastructure improvements.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Footer input */}
+          <div />
+          <div className="sticky bottom-0 pt-4 bg-gradient-to-b from-transparent via-[#0e0f12]/80 to-[#0e0f12]">
+            <div className="flex items-center gap-2 bg-[#14151a] border border-[#2a2d34] rounded-xl px-4 py-3 text-sm text-zinc-300">
+              <span>Type <strong>@</strong> to change account</span>
+              <span className="ml-auto inline-flex items-center gap-2 rounded-lg border border-[#2a2d34] bg-[#121318] px-2.5 py-1.5 text-xs text-zinc-300">
+                <span className="grid place-items-center w-4 h-4 rounded bg-[#635bff] text-white font-bold text-[10px]">S</span>
+                Stripe
+              </span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function Dot({ filled }: { filled?: boolean }) {
+  return (
+    <div
+      className={[
+        "mt-1 h-[14px] w-[14px] rounded-full border-2",
+        filled ? "bg-[#c7c9d1] border-[#c7c9d1]" : "bg-[#0e0f12] border-[#24262c]",
+      ].join(" ")}
+    />
+  );
+}
+
+function Step({
+  index,
+  total,
+  title,
+  chips = [],
+  dim,
+  active,
+}: {
+  index: number;
+  total: number;
+  title: string;
+  chips?: string[];
+  dim?: boolean;
+  active?: boolean;
+}) {
+  return (
+    <div className={dim ? "opacity-70" : ""}>
+      <div className="text-xs text-zinc-400">{`Step ${index} of ${total}`}</div>
+      <div className={`mt-1 text-sm ${active ? "text-white" : "text-zinc-200"}`}>{title}</div>
+      {chips.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {chips.map((c, i) => (
+            <span
+              key={i}
+              className="text-[11px] px-2 py-1 rounded-md border border-[#2a2d34] bg-[#111217] text-zinc-400"
+            >
+              {c}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
