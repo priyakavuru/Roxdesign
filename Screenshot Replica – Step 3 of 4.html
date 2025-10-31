@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)file:///Users/Priya/Downloads/Screenshot%20Replica%20%E2%80%93%20Step%203%20of%204.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Screenshot Replica – Step 3 of 4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="./Screenshot Replica – Step 3 of 4_files/css2" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0c0d10;
+      --text: #e8e9ed;
+      --muted: #9397a2;
+      --panel: #14151a;
+      --chip-bg: #101216;
+      --chip-border: #2a2d34;
+      --rail: #2a2d34;
+      --green: #2f9e62;
+      --green-bright: #46b879;
+      --gold: #ffcc66;
+      --badge: #202228;
+      --hint: #bfc3cb;
+    }
+    *{box-sizing: border-box;}
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .wrap{max-width:1060px;margin:0 auto;padding:42px 28px 88px;}
+    .query{
+      display:inline-block;
+      background: var(--panel);
+      color:#d3d6dc;
+      border:1px solid var(--chip-border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      font-size:14px;
+      line-height:1.2;
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.03);
+    }
+    .bar{
+      display:flex; align-items:center; gap:16px; margin-top:18px;
+    }
+    .progress{position:relative;flex:1;height:8px;background:#171a1f;border-radius:999px;overflow:hidden;}
+    .progress .fill{position:absolute;inset:0;width:78%;background: linear-gradient(90deg, var(--green) 0%, var(--green-bright) 100%);}
+    .time{font-size:12px;color:var(--muted);}
+    .steps{position:relative;display:grid;grid-template-columns:36px 1fr;gap:12px 16px;margin-top:26px;}
+    .rail{position:absolute;left:18px;top:0;bottom:0;width:2px;background:var(--rail);}
+    .dot{display:grid;place-items:center;width:18px;height:18px;border-radius:999px;background:#0e0f12;border:2px solid var(--rail);}
+    .dot.done{background:#cdd0d7;border-color:#cdd0d7; color:#0e0f12;}
+    .dot.badge{background:#1b1e24;border-color:#464a54;color:#d7dbe6; font-weight:600; font-size:11px;}
+    .step .label{font-size:12px;color:var(--muted);}
+    .step .title{margin-top:6px;font-size:14px;color:#d7d9df;}
+    .step.dim .title{opacity:.6}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .chip{background:var(--chip-bg);border:1px solid var(--chip-border);color:#b2b6bf;padding:8px 10px;border-radius:10px;font-size:12px;}
+    .input{position:sticky;bottom:0;margin-top:30px;background:linear-gradient(180deg, rgba(12,13,16,0) 0%, rgba(12,13,16,1) 42%, rgba(12,13,16,1) 100%);padding-top:16px;}
+    .inputbar{display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--chip-border);border-radius:12px;padding:12px 14px;color:#c5c8cf;font-size:14px;}
+    .acct{display:inline-flex;align-items:center;gap:8px;background:#111318;border:1px solid var(--chip-border);padding:6px 10px;border-radius:10px;font-size:12px;color:#cdd1d9;}
+    .acct .logo{display:grid;place-items:center;width:16px;height:16px;border-radius:4px;background:#635bff;color:white;font-weight:800;font-size:10px;}
+    .sr{position:absolute;left:-9999px;}
+    @media (max-width:640px){.wrap{padding:28px 16px 60px;}.query{width:100%;text-align:center;}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div style="text-align:center;">
+      <span class="query">For this account, find all of the new developments in the past week</span>
+    </div>
+
+    <div class="bar" aria-label="progress box">
+      <div class="progress"><span class="fill"></span></div>
+      <div class="time">1 min left</div>
+    </div>
+
+    <section class="steps" aria-label="Steps">
+      <div class="rail" aria-hidden="true"></div>
+
+      <!-- Step 1 -->
+      <div class="dot done" title="done" style="grid-row:1"></div>
+      <div class="step dim">
+        <div class="label">Step 1 of 4</div>
+        <div class="title">Looking at any recent meetings you have had with this account in the past couple days and summarizing findings</div>
+        <div class="chips">
+          <div class="chip">🔎 Searching over meetings with Stripe</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="dot done" title="done" style="grid-row:2"></div>
+      <div class="step dim">
+        <div class="label">Step 2 of 4</div>
+        <div class="title">Searching my deals and seeing if there has been any activity on the deal</div>
+        <div class="chips">
+          <div class="chip">📄 Retrieving available deal stages</div>
+          <div class="chip">📄 Retrieving deals for Stripe</div>
+        </div>
+      </div>
+
+      <!-- Step 3 (active) -->
+      <div class="dot done" title="done" style="grid-row:3"></div>
+      <div class="step dim">
+        <div class="label">Step 3 of 4</div>
+        <div class="title">Searching Rox and the web for recent public news on this account</div>
+        <div class="chips">
+          <div class="chip">🔎 Retrieving information on public news postings for Stripe</div>
+          <div class="chip">🔎 Searching the web for "Stripe news September 2025"</div>
+        </div>
+      </div>
+
+      <!-- Placeholder for where Step 4 would appear (not shown in screenshot) -->
+      <div class="dot badge" style="grid-row:4"></div>
+      <div class="step">
+        <div class="label">Step 4 of 4</div>
+        <div class="title">Analyzing findings and forming insights<div class="chips">
+          <div class="chip">🗣️ Hmm... looks like Stripe made two key announcements this week</div>
+          
+        <div class="chip">🗣️ There’s a clear opportunity here to re-engage stripe</div><div class="chip">🗣️ Summarizing key implication and next steps for the account</div></div></div>
+      </div>
+    </section>
+
+    <div class="input">
+      <div class="inputbar">
+        <span>Type <strong>@</strong> to change account</span>
+        <span style="margin-left:auto"></span>
+        <span class="acct"><span class="logo">S</span> Stripe</span>
+      </div>
+    </div>
+  </div>
+
+
+</body></html>
